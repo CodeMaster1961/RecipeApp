@@ -13,8 +13,10 @@ ksp = "1.9.20-1.0.14"
 retrofit = "2.11.0"
 coil = "2.4.0"
 compose = "2.8.0"
+serialization = "1.6.3"
 
 [libraries]
+serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
 compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "compose" }
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
@@ -37,6 +39,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
 [plugins]
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
+    kotlin("plugin.serialization") version "1.5.0"
 }
 
 android {
@@ -59,6 +60,7 @@ dependencies {
     implementation(libs.retrofit.gson)
     implementation(libs.coil)
     implementation(libs.compose.navigation)
+    implementation(libs.serialization.json)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
