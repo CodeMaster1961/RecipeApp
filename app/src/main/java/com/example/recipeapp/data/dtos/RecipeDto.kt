@@ -1,17 +1,17 @@
 package com.example.recipeapp.data.dtos
 
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-@Serializable
+@JsonClass(generateAdapter = true)
 data class RecipeDto(
-    @SerialName("limit")
+    @Json(name = "limit")
     val limit: Int,
-    @SerialName("recipes")
+    @Json(name = "recipes")
     val recipes: List<Recipe>,
-    @SerialName("skip")
+    @Json(name = "skip")
     val skip: Int,
-    @SerialName("total")
+    @Json(name = "total")
     val total: Int
 )

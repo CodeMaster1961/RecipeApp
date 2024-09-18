@@ -1,41 +1,41 @@
 package com.example.recipeapp.data.dtos
 
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-@Serializable
+@JsonClass(generateAdapter = true)
 data class Recipe(
-    @SerialName("caloriesPerServing")
+    @Json(name = "caloriesPerServing")
     val caloriesPerServing: Int,
-    @SerialName("cookTimeMinutes")
+    @Json(name = "cookTimeMinutes")
     val cookTimeMinutes: Int,
-    @SerialName("cuisine")
+    @Json(name = "cuisine")
     val cuisine: String,
-    @SerialName("difficulty")
+    @Json(name = "difficulty")
     val difficulty: String,
-    @SerialName("id")
+    @Json(name = "id")
     val id: Int,
-    @SerialName("image")
+    @Json(name = "image")
     val image: String,
-    @SerialName("ingredients")
+    @Json(name = "ingredients")
     val ingredients: List<String>,
-    @SerialName("instructions")
+    @Json(name = "instructions")
     val instructions: List<String>,
-    @SerialName("mealType")
+    @Json(name = "mealType")
     val mealType: List<String>,
-    @SerialName("name")
+    @Json(name = "name")
     val name: String,
-    @SerialName("prepTimeMinutes")
+    @Json(name = "prepTimeMinutes")
     val prepTimeMinutes: Int,
-    @SerialName("rating")
+    @Json(name = "rating")
     val rating: Double,
-    @SerialName("reviewCount")
+    @Json(name = "reviewCount")
     val reviewCount: Int,
-    @SerialName("servings")
+    @Json(name = "servings")
     val servings: Int,
-    @SerialName("tags")
+    @Json(name = "tags")
     val tags: List<String>,
-    @SerialName("userId")
+    @Json(name = "userId")
     val userId: Int
 )
