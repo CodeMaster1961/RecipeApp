@@ -17,5 +17,4 @@ class RecipeViewModelModule {
     fun provideRecipeViewModel(recipeRepository: RecipeRepository): RecipeViewModel {
         return RecipeViewModel(recipeRepository)
     }
-
 }

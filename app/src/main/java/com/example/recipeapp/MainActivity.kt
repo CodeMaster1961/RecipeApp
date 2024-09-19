@@ -8,9 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.recipeapp.ui.RecipeApp
-import com.example.recipeapp.ui.RecipeViewModel
+import com.example.recipeapp.ui.navigation.RecipeApp
 import com.example.recipeapp.ui.theme.RecipeAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,8 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             RecipeAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val recipeViewModel: RecipeViewModel = hiltViewModel()
-                    RecipeApp(viewModel = recipeViewModel)
+                    RecipeApp()
                 }
             }
         }

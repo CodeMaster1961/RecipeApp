@@ -10,5 +10,4 @@ class RecipeApplication : Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
     }
-
 }

@@ -23,6 +23,11 @@ class RecipeViewModel @Inject constructor(
         recipeList()
     }
 
+    /**
+     * Fetches a list of recipes from the repository and updates the UI state accordingly.
+     * @author Ömer Aynaci
+     *
+     */
     private fun recipeList() {
         viewModelScope.launch {
             recipeUiState = RecipeUiState.Loading
