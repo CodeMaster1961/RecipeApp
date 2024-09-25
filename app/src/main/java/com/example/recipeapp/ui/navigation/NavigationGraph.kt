@@ -27,7 +27,9 @@ fun RecipeApp(
             arguments = listOf(navArgument("recipeId") { type = NavType.IntType })
         ) { backStackEntry ->
             val recipeId = backStackEntry.arguments?.getInt("recipeId") ?: -1
-            RecipeDetails(recipeId = recipeId, viewModel = viewModel)
+            RecipeDetails(recipeId = recipeId, viewModel = viewModel, navigateBack = {
+                navController.navigateUp()
+            })
         }
     }
 }
