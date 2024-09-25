@@ -33,16 +33,24 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.example.recipeapp.data.dtos.Recipe
 import com.example.recipeapp.ui.state.RecipeUiState
 
 @Composable
 fun RecipeListScreen(
-    recipeUiState: RecipeUiState
+    recipeUiState: RecipeUiState,
+    navController: NavHostController
 ) {
     when (recipeUiState) {
-        is RecipeUiState.Success -> RecipeList(recipes = recipeUiState.recipes)
+        is RecipeUiState.Success -> RecipeList(
+            recipes = recipeUiState.recipes,
+            onClick = { recipeId ->
+                navController.navigate("recipeDetails/$recipeId")
+            })
+
         is RecipeUiState.Loading -> LoadingIndicator()
         is RecipeUiState.Error -> Text(text = "Error")
     }
@@ -50,10 +58,10 @@ fun RecipeListScreen(
 
 
 @Composable
-fun RecipeList(recipes: List<Recipe>) {
+fun RecipeList(recipes: List<Recipe>, onClick: (Int) -> Unit) {
     LazyColumn(verticalArrangement = Arrangement.Center) {
         items(recipes) { recipe ->
-            RecipeCard(recipe = recipe)
+            RecipeCard(recipe = recipe, onClick = onClick)
         }
     }
 }
@@ -71,9 +79,9 @@ fun LoadingIndicator() {
 
 
 @Composable
-fun RecipeCard(recipe: Recipe) {
+fun RecipeCard(recipe: Recipe, onClick: (Int) -> Unit) {
     Card(
-        onClick = { /*TODO*/ }, shape = RoundedCornerShape(10.dp),
+        onClick = { onClick(recipe.id) }, shape = RoundedCornerShape(10.dp),
         colors = CardDefaults.cardColors(
             containerColor = Color(0xFFF5F5DC)
         ),
