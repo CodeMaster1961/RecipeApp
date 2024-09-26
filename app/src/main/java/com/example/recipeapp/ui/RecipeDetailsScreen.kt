@@ -83,7 +83,7 @@ fun RecipeDetailsScreen(
             RecipeDetailTopAppBar(recipeTitle = recipe.name, navigateBack = navigateBack)
         }
     ) {
-        RecipeImage(
+        RecipeNewImage(
             imageUrl = recipe.image
         )
         IngredientsTitle()
@@ -131,7 +131,7 @@ fun IngredientsTitle() {
 }
 
 @Composable
-fun RecipeImage(imageUrl: String, modifier: Modifier = Modifier) {
+fun RecipeNewImage(imageUrl: String, modifier: Modifier = Modifier) {
     AsyncImage(
         model = imageUrl,
         contentDescription = "recipe image",
