@@ -55,6 +55,7 @@ android {
 dependencies {
 
     implementation(libs.hilt.android)
+    implementation(libs.androidx.compose.material)
     ksp(libs.hilt.compiler)
     implementation(libs.timber)
     implementation(libs.moshi)
