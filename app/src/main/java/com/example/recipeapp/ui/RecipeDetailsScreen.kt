@@ -1,6 +1,7 @@
 package com.example.recipeapp.ui
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -46,7 +47,12 @@ import com.example.recipeapp.ui.state.RecipeDetailsUiState
 
 
 @Composable
-fun RecipeDetails(recipeId: Int, viewModel: RecipeViewModel, navigateBack: () -> Unit,navigateToInstructions: () -> Unit) {
+fun RecipeDetails(
+    recipeId: Int,
+    viewModel: RecipeViewModel,
+    navigateBack: () -> Unit,
+    navigateToInstructions: () -> Unit
+) {
     val recipeUiState = viewModel.recipeDetailsUiState
 
     LaunchedEffect(recipeId) {
@@ -67,7 +73,11 @@ fun RecipeDetails(recipeId: Int, viewModel: RecipeViewModel, navigateBack: () ->
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun RecipeDetailsScreen(recipe: Recipe, navigateBack: () -> Unit, navigateToInstructions: () -> Unit) {
+fun RecipeDetailsScreen(
+    recipe: Recipe,
+    navigateBack: () -> Unit,
+    navigateToInstructions: () -> Unit
+) {
     Scaffold(
         topBar = {
             RecipeDetailTopAppBar(recipeTitle = recipe.name, navigateBack = navigateBack)
@@ -93,8 +103,10 @@ fun InstructionsButton(navigateToInstructions: () -> Unit) {
             .fillMaxSize()
             .padding(top = 160.dp, end = 25.dp)
     ) {
-        Button(onClick = { navigateToInstructions() },
-            modifier = Modifier.size(140.dp,45.dp)) {
+        Button(
+            onClick = { navigateToInstructions() },
+            modifier = Modifier.size(140.dp, 45.dp)
+        ) {
             Text(text = "Instructions")
         }
     }
@@ -146,7 +158,7 @@ fun RecipeDetailTopAppBar(recipeTitle: String, navigateBack: () -> Unit) {
 @Composable
 fun IngredientsOverview(ingredients: List<String>) {
     LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(10.dp),
+        verticalArrangement = Arrangement.spacedBy(19.dp),
         contentPadding = PaddingValues(10.dp),
         modifier = Modifier
             .fillMaxSize()
@@ -159,17 +171,3 @@ fun IngredientsOverview(ingredients: List<String>) {
 }
 
 
-@Composable
-fun InstructionsOverview(instructions: List<String>) {
-    LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(10.dp),
-        contentPadding = PaddingValues(10.dp),
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(PaddingValues(top = 100.dp))
-    ) {
-        items(instructions) { instruction ->
-            Text(text = instruction, fontSize = 19.sp, textAlign = TextAlign.Start)
-        }
-    }
-}

@@ -18,8 +18,8 @@ fun RecipeApp(
     viewModel: RecipeViewModel = hiltViewModel(),
     navController: NavHostController = rememberNavController()
 ) {
-    NavHost(navController = navController, startDestination = "start_screen") {
-        composable("start_screen") {
+    NavHost(navController = navController, startDestination = Screens.START_SCREEN.name) {
+        composable(Screens.START_SCREEN.name) {
             RecipeListScreen(recipeUiState = viewModel.recipeUiState, navController = navController)
         }
 
@@ -39,7 +39,9 @@ fun RecipeApp(
             arguments = listOf(navArgument("recipeId") { type = NavType.IntType })
         ) { backStackEntry ->
             val recipeId = backStackEntry.arguments?.getInt("recipeId") ?: -1
-            RecipeInstructionsScreen(recipeId = recipeId, viewModel = viewModel)
+            RecipeInstructionsScreen(recipeId = recipeId, viewModel = viewModel, navigateBack = {
+                navController.navigateUp()
+            })
         }
     }
 }
