@@ -36,12 +36,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.recipeapp.R
 import com.example.recipeapp.data.dtos.Recipe
 import com.example.recipeapp.ui.state.RecipeDetailsUiState
 
@@ -105,9 +107,9 @@ fun InstructionsButton(navigateToInstructions: () -> Unit) {
     ) {
         Button(
             onClick = { navigateToInstructions() },
-            modifier = Modifier.size(140.dp, 45.dp)
+            modifier = Modifier.size(160.dp, 45.dp)
         ) {
-            Text(text = "Instructions")
+            Text(text = stringResource(R.string.instructions_title))
         }
     }
 }
@@ -134,7 +136,7 @@ fun IngredientsTitle() {
 fun RecipeNewImage(imageUrl: String, modifier: Modifier = Modifier) {
     AsyncImage(
         model = imageUrl,
-        contentDescription = "recipe image",
+        contentDescription = stringResource(R.string.recipe_image_description),
         modifier = modifier
             .padding(top = 100.dp, start = 10.dp)
             .clip(RoundedCornerShape(10.dp))
@@ -150,7 +152,12 @@ fun RecipeDetailTopAppBar(recipeTitle: String, navigateBack: () -> Unit) {
         },
         navigationIcon = {
             IconButton(onClick = navigateBack) {
-                Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "back")
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(
+                        R.string.back_content_description
+                    )
+                )
             }
         })
 }

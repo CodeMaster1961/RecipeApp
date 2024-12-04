@@ -28,12 +28,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
+import com.example.recipeapp.R
 import com.example.recipeapp.data.dtos.Recipe
 import com.example.recipeapp.ui.state.RecipeUiState
 
@@ -50,7 +52,7 @@ fun RecipeListScreen(
             })
 
         is RecipeUiState.Loading -> LoadingIndicator()
-        is RecipeUiState.Error -> Text(text = "Error")
+        is RecipeUiState.Error -> Text(text = stringResource(R.string.error_message))
     }
 }
 
@@ -111,7 +113,7 @@ fun RecipeCard(recipe: Recipe, onClick: (Int) -> Unit) {
 @Composable
 fun RecipeContent(recipe: Recipe, modifier: Modifier = Modifier) {
     Box(
-        modifier = Modifier
+        modifier = modifier
     ) {
         RecipeImage(imageUrl = recipe.image)
         Spacer(modifier = Modifier.height(80.dp))
@@ -129,8 +131,8 @@ fun RatingIcon(rating: Double, icon: ImageVector, modifier: Modifier = Modifier)
         modifier = modifier
     ) {
         Icon(
-            imageVector = Icons.Filled.Star,
-            contentDescription = "review star",
+            imageVector = icon,
+            contentDescription = stringResource(R.string.review_star_description),
             tint = Color.Yellow,
             modifier = Modifier.size(50.dp)
         )
@@ -142,7 +144,7 @@ fun RatingIcon(rating: Double, icon: ImageVector, modifier: Modifier = Modifier)
 fun RecipeImage(imageUrl: String) {
     AsyncImage(
         model = imageUrl,
-        contentDescription = "image",
+        contentDescription = stringResource(R.string.image_description),
         contentScale = ContentScale.Crop,
         modifier = Modifier.fillMaxSize()
     )

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">RecipeApp</string>
     <string name="instructions_title">Instructions</string>
+    <string name="recipe_image_description">recipe image</string>
+    <string name="back_content_description">back</string>
+    <string name="error_message">Error</string>
+    <string name="review_star_description">review star</string>
+    <string name="image_description">image</string>
 </resources>
