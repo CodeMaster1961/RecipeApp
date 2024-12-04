@@ -17,7 +17,6 @@ class RecipeAppModule {
     /**
      * Provides the recipe api
      * @author Ömer Aynaci
-     * @return instance of retrofit
      */
     @Singleton
     @Provides
