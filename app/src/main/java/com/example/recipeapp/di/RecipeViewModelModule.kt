@@ -12,6 +12,12 @@ import dagger.hilt.android.scopes.ViewModelScoped
 @InstallIn(ViewModelComponent::class)
 class RecipeViewModelModule {
 
+    /**
+     * Provides the recipe viewmodel
+     * @author Ömer Aynaci
+     * @param recipeRepository the recipe repository
+     * @return instance of recipe viewmodel
+     */
     @Provides
     @ViewModelScoped
     fun provideRecipeViewModel(recipeRepository: RecipeRepository): RecipeViewModel {

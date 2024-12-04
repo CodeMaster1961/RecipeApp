@@ -13,6 +13,13 @@ import com.example.recipeapp.ui.RecipeInstructionsScreen
 import com.example.recipeapp.ui.RecipeListScreen
 import com.example.recipeapp.ui.RecipeViewModel
 
+
+/**
+ * Navigation graph for the recipe app
+ * @author Ömer Aynaci
+ * @param viewModel the viewmodel
+ * @param navController the navigation controller
+ */
 @Composable
 fun RecipeApp(
     viewModel: RecipeViewModel = hiltViewModel(),

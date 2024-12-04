@@ -6,6 +6,11 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+/**
+ * Creates a retrofit instance
+ * @author Ömer Aynaci
+ * @return Retrofit instance
+ */
 fun retrofitInstance(): Retrofit {
     val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
     return Retrofit.Builder()

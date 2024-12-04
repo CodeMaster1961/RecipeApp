@@ -6,14 +6,11 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import coil.network.HttpException
-import com.example.recipeapp.data.dtos.Recipe
 import com.example.recipeapp.data.repository.RecipeRepository
 import com.example.recipeapp.ui.state.RecipeDetailsUiState
 import com.example.recipeapp.ui.state.RecipeUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel

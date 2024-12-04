@@ -14,12 +14,23 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class RecipeAppModule {
 
+    /**
+     * Provides the recipe api
+     * @author Ömer Aynaci
+     * @return instance of retrofit
+     */
     @Singleton
     @Provides
     fun provideRecipeAPI(): RecipeAPI {
         return retrofitInstance().create(RecipeAPI::class.java)
     }
 
+    /**
+     * Provides the recipe repository
+     * @author Ömer Aynaci
+     * @param recipeAPI the recipe api
+     * @return instance of recipe repository
+     */
     @Singleton
     @Provides
     fun provideRecipeRepository(recipeAPI: RecipeAPI): RecipeRepository {
