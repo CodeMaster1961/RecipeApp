@@ -6,4 +6,6 @@
     <string name="error_message">Error</string>
     <string name="review_star_description">review star</string>
     <string name="image_description">image</string>
+    <string name="loading_message">Loading</string>
+    <string name="ingredients_title">Ingredients</string>
 </resources>

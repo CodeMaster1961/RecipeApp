@@ -8,7 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.recipeapp.ui.RecipeDetails
+import com.example.recipeapp.ui.RecipeDetailsScreen
 import com.example.recipeapp.ui.RecipeInstructionsScreen
 import com.example.recipeapp.ui.RecipeListScreen
 import com.example.recipeapp.ui.RecipeViewModel
@@ -28,7 +28,7 @@ fun RecipeApp(
             arguments = listOf(navArgument("recipeId") { type = NavType.IntType })
         ) { backStackEntry ->
             val recipeId = backStackEntry.arguments?.getInt("recipeId") ?: -1
-            RecipeDetails(recipeId = recipeId, viewModel = viewModel, navigateBack = {
+            RecipeDetailsScreen(recipeId = recipeId, viewModel = viewModel, navigateBack = {
                 navController.navigateUp()
             }, navigateToInstructions = {
                 navController.navigate("recipeInstructions/$recipeId")
